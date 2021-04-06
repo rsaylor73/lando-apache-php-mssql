@@ -22,7 +22,6 @@ services:
     creds:
       user: sa
       password: yourpassword
-      database: sac
 tooling:
   composer:
     service: appserver
