@@ -21,7 +21,7 @@ services:
     portforward: true
     creds:
       user: sa
-      password: yourStrong#Password
+      password: yourpassword
       database: sac
 tooling:
   composer:
