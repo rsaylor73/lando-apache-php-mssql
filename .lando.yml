@@ -1,0 +1,32 @@
+name: test1
+recipe: lamp
+config:
+  webroot: public
+proxy:
+  appserver:
+    - test1.lndo.site
+services:
+  appserver:
+    config: {}
+    ssl: true
+    type: 'php:7.1'
+    via: apache
+    xdebug: true
+    webroot: .
+    build_as_root:
+      - /app/mssql.sh
+  database:
+    config: {}
+    type: mssql
+    portforward: true
+    creds:
+      user: sa
+      password: yourStrong#Password
+      database: sac
+tooling:
+  composer:
+    service: appserver
+    cmd: composer --ansi
+  php:
+    service: appserver
+    cmd: php
